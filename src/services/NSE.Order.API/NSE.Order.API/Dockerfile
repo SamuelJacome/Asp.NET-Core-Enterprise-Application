@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["NSE.Order.API/NSE.Order.API.csproj", "NSE.Order.API/"]
-RUN dotnet restore "NSE.Order.API/NSE.Order.API.csproj"
+COPY ["src/services/NSE.Order.API/NSE.Order.API/NSE.Order.API.csproj", "src/services/NSE.Order.API/NSE.Order.API/"]
+RUN dotnet restore "src/services/NSE.Order.API/NSE.Order.API/NSE.Order.API.csproj"
 COPY . .
-WORKDIR "/src/NSE.Order.API"
+WORKDIR "/src/src/services/NSE.Order.API/NSE.Order.API"
 RUN dotnet build "NSE.Order.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
