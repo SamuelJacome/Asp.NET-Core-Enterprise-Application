@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using NSE.Identidade.API.Models;
 using NSE.Identity.API.Extensions;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -21,8 +22,6 @@ namespace NSE.Identity.API.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettings _appSettings;
-
-
         public AuthController(
             SignInManager<IdentityUser> signInManager,
             UserManager<IdentityUser> userManager,
@@ -80,13 +79,20 @@ namespace NSE.Identity.API.Controllers
 
         }
         [HttpGet]
-        public async Task<UserReponseLogin> GenerateJwt(string email)
+        private async Task<UserReponseLogin> GenerateJwt(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
             var claims = await _userManager.GetClaimsAsync(user);
+
+            var identityClaims = await GetUserClaims(claims, user);
+            var encoderToken =  EncoderToken(identityClaims);
+
+            return GetResponseToken(encoderToken, user, claims);
+        }
+        private async Task<ClaimsIdentity> GetUserClaims(ICollection<Claim> claims, IdentityUser user)
+        {
             var userRoles = await _userManager.GetRolesAsync(user);
 
-            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, ToUnixEpochDate(DateTime.UtcNow).ToString()));
@@ -99,6 +105,10 @@ namespace NSE.Identity.API.Controllers
             var identityClaims = new ClaimsIdentity();
             identityClaims.AddClaims(claims);
 
+            return identityClaims;
+        }
+        private string EncoderToken(ClaimsIdentity identityClaims)
+        {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var token = tokenHandler.CreateToken(new SecurityTokenDescriptor
@@ -110,8 +120,10 @@ namespace NSE.Identity.API.Controllers
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             });
 
-            var encodedToken = tokenHandler.WriteToken(token);
-
+            return tokenHandler.WriteToken(token);
+        }
+        private UserReponseLogin GetResponseToken(string encodedToken, IdentityUser user, ICollection<Claim> claims) 
+        {
             var response = new UserReponseLogin
             {
                 AccessToken = encodedToken,
@@ -126,10 +138,8 @@ namespace NSE.Identity.API.Controllers
 
             return response;
         }
-
         private static long ToUnixEpochDate(DateTime date)
                 => (long)Math.Round((date.ToUniversalTime() - new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)).TotalSeconds);
-
     }
 }
 
