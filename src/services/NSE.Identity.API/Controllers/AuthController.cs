@@ -75,6 +75,7 @@ namespace NSE.Identity.API.Controllers
             {
                 AddError("Usuário temporariamente bloqueado por tentativas inválidas");
             }
+                AddError("Usuário ou Senha incorretos");
             return CustomResponse();
 
         }
