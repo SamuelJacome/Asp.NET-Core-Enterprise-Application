@@ -5,9 +5,10 @@ namespace NSE.Web.MVC.Models
 {
     public class ErrorViewModel
     {
-        public string RequestId { get; set; }
+        public string Title { get; set; }
+        public string Message { get; set; }
+        public int ErrorCode { get; set; }
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 
     public class ResponseResult

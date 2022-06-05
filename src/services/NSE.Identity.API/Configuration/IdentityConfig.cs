@@ -17,7 +17,6 @@ namespace NSE.Identity.API.Configuration
     {
         public static IServiceCollection AddIdentityConfiguration(this IServiceCollection services, IConfiguration Configuration)
         {
-
             services.AddDbContext<ApplicationDbContext>(optionsAction: options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

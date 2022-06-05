@@ -63,9 +63,9 @@ namespace NSE.Identity.API.Controllers
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             var result = await _signInManager.PasswordSignInAsync(userName: userLogin.Email,
-                                                                    password: userLogin.Password,
-                                                                    isPersistent: false,
-                                                                    lockoutOnFailure: true);
+                                                                password: userLogin.Password,
+                                                                isPersistent: false,
+                                                                lockoutOnFailure: true);
             if (result.Succeeded)
             {
                 return CustomResponse(await GenerateJwt(userLogin.Email));
