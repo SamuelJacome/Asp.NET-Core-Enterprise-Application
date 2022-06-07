@@ -33,15 +33,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShoppingCart", "ShoppingCar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{DDDB793C-0355-441D-9FFA-03BFF2262192}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSE.Catalog.API", "src\services\NSE.Catalog.API\NSE.Catalog.API.csproj", "{EF574AA7-3363-43E8-B49E-E6212881D377}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSE.Catalog.API", "src\services\NSE.Catalog.API\NSE.Catalog.API.csproj", "{EF574AA7-3363-43E8-B49E-E6212881D377}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSE.Customer.API", "src\services\NSE.Customer.API\NSE.Customer.API.csproj", "{19705AFE-DFBF-4EA9-BADB-228A4433DA7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSE.Customer.API", "src\services\NSE.Customer.API\NSE.Customer.API.csproj", "{19705AFE-DFBF-4EA9-BADB-228A4433DA7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSE.Payment.API", "src\services\NSE.Payment.API\NSE.Payment.API.csproj", "{E94D116F-07F1-4B22-A50B-3DF1B76F3021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSE.Payment.API", "src\services\NSE.Payment.API\NSE.Payment.API.csproj", "{E94D116F-07F1-4B22-A50B-3DF1B76F3021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSE.ShoppingCart.API", "src\services\NSE.ShoppingCart.API\NSE.ShoppingCart.API.csproj", "{14B8038F-397A-49C1-BD88-703B9A96396D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSE.ShoppingCart.API", "src\services\NSE.ShoppingCart.API\NSE.ShoppingCart.API.csproj", "{14B8038F-397A-49C1-BD88-703B9A96396D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSE.Order.API", "src\services\NSE.Order.API\NSE.Order.API\NSE.Order.API.csproj", "{D323E03E-4F3F-4F99-8AE4-FAE07B466EA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NSE.Order.API", "src\services\NSE.Order.API\NSE.Order.API\NSE.Order.API.csproj", "{D323E03E-4F3F-4F99-8AE4-FAE07B466EA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

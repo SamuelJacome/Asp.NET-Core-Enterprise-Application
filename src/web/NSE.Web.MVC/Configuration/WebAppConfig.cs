@@ -3,14 +3,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using NSE.Web.MVC.Extensions;
+using Microsoft.Extensions.Configuration;
 
 namespace NSE.Web.MVC.Configuration
 {
     public static class WebAppConfig
     {
-        public static IServiceCollection AddWebAppConfig (this IServiceCollection services)
+        public static IServiceCollection AddWebAppConfig (this IServiceCollection services, IConfiguration configuration)
         {
             services.AddControllersWithViews();
+            services.Configure<AppSettings>(configuration);
             return services;
         }
 
