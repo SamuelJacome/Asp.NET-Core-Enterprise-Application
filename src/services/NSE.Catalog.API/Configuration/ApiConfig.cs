@@ -19,6 +19,7 @@ namespace NSE.Catalog.API.Configuration
 
             services.AddDbContext<CatalogContext>(options =>
               options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllers();
 
 
@@ -26,7 +27,9 @@ namespace NSE.Catalog.API.Configuration
             {
                 options.AddPolicy("Total",
                 builder => builder
-                .AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
             });
            
         }

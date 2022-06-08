@@ -9,11 +9,11 @@ using NSE.Catalog.API.Data;
 
 namespace NSE.Catalogo.API.Data.Repository
 {
-    public class ProdutoRepository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly CatalogContext _context;
 
-        public ProdutoRepository(CatalogContext context)
+        public ProductRepository(CatalogContext context)
         {
             _context = context;
         }

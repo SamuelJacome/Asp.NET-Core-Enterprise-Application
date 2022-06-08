@@ -1,10 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using NSE.Catalog.API.Data;
+using NSE.Catalogo.API.Data.Repository;
 using NSE.Catalog.API.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using NSE.Catalog.API.Data;
 
 namespace NSE.Catalog.API.Configuration
 {
@@ -12,7 +9,7 @@ namespace NSE.Catalog.API.Configuration
     {
         public static void AddDependecyInjectionConfiguration(this IServiceCollection services)
         {
-            services.AddScoped<IProductRepository, IProductRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<CatalogContext>();
         }
     }
