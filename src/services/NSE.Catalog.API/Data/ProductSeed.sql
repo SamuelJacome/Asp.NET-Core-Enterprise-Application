@@ -8,3 +8,6 @@ INSERT [dbo].[Products] ([Id], [Name], [Description], [IsActive], [Value], [Crea
 INSERT [dbo].[Products] ([Id], [Name], [Description], [IsActive], [Value], [CreatedAt], [Image], [QuantityStock]) VALUES (N'191ddd3e-acd4-4c3b-ae74-8e473993c5da', N'Caneca Programmer Code', N'Caneca de porcelana com impressão térmica de alta resistência.', 1, CAST(15.00 AS Decimal(18, 2)), CAST(N'2019-07-19T00:00:00.0000000' AS DateTime2), N'caneca2.jpg', 1)
 INSERT [dbo].[Products] ([Id], [Name], [Description], [IsActive], [Value], [CreatedAt], [Image], [QuantityStock]) VALUES (N'fc184e11-014c-4978-aa10-9eb5e1af369b', N'Camiseta Software Developer', N'Camiseta 100% algodão, resistente a lavagens e altas temperaturas.', 1, CAST(100.00 AS Decimal(18, 2)), CAST(N'2019-07-19T00:00:00.0000000' AS DateTime2), N'camiseta1.jpg', 9)
 INSERT [dbo].[Products] ([Id], [Name], [Description], [IsActive], [Value], [CreatedAt], [Image], [QuantityStock]) VALUES (N'20e08cd4-2402-4e76-a3c9-a026185b193d', N'Caneca Turn Coffee in Code', N'Caneca de porcelana com impressão térmica de alta resistência.', 1, CAST(20.00 AS Decimal(18, 2)), CAST(N'2019-07-19T00:00:00.0000000' AS DateTime2), N'caneca3.jpg', 0)
+
+
+SELECT * FROM Products;

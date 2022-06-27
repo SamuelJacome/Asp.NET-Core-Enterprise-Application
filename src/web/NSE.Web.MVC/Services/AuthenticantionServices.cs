@@ -14,9 +14,9 @@ namespace NSE.Identity.API.Services
         private readonly AppSettings _settings;
         public AuthenticantionServices (HttpClient httpClient, IOptions<AppSettings> settings)
         {
-            httpClient.BaseAddress = new Uri(_settings.AuthUrl);
             _httpClient = httpClient;
             _settings = settings.Value;
+            httpClient.BaseAddress = new Uri(_settings.AuthUrl);
         }
 
         public async Task<UserResponseLogin> Login(UserLogin userLogin)

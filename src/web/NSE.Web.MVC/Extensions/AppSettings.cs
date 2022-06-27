@@ -8,6 +8,6 @@ namespace NSE.Web.MVC.Extensions
     public class AppSettings
     {
         public string AuthUrl { get; set; }
-        public string Catalog { get; set; }
+        public string CatalogUrl { get; set; }
     }
 }
