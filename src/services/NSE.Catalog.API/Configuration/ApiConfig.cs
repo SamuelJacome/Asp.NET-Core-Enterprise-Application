@@ -32,10 +32,10 @@ namespace NSE.Catalog.API.Configuration
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
-           
+
         }
-           public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
-            {
+        public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -48,6 +48,8 @@ namespace NSE.Catalog.API.Configuration
             app.UseAuthConfiguration();
 
             app.UseCors("Total");
+
+            app.UseAuthConfiguration();
 
             app.UseEndpoints(endpoints =>
             {
